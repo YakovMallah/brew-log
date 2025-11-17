@@ -31,8 +31,8 @@ export default defineSchema({
         method: v.string(),
         waterTempC: v.number(),
         grindSize: v.string(),
-        coffeeWeight: v.number(),
-        waterWeight: v.number(),
+        coffeeWeightG: v.number(),
+        waterWeightG: v.number(),
         brewTimeSeconds: v.number(),
         rating: v.number(),
         notes: v.string(),
@@ -40,12 +40,8 @@ export default defineSchema({
         // userId: v.id("users"), // Once user auth is set up
         brewDate: v.number(),
     })
-        .searchIndex("by_beanId", {
-            searchField: "beanId"
-        })
-        .searchIndex("by_brewDate", {
-            searchField: "brewDate"
-        }),
+        .index("by_beanId", ["beanId"])
+        .index("by_brewDate", ["brewDate"]),
 
     // We'll add a 'users' table later when we integrate authentication
     // users: defineTable({

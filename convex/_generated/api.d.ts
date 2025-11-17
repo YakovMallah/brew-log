@@ -8,13 +8,19 @@
  * @module
  */
 
+import type * as beans from "../beans.js";
+import type * as brews from "../brews.js";
+
 import type {
   ApiFromModules,
   FilterApi,
   FunctionReference,
 } from "convex/server";
 
-declare const fullApi: ApiFromModules<{}>;
+declare const fullApi: ApiFromModules<{
+  beans: typeof beans;
+  brews: typeof brews;
+}>;
 
 /**
  * A utility for referencing Convex functions in your app's public API.
